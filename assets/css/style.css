@@ -1,0 +1,116 @@
+body {
+  font-family: 'Arial', sans-serif;
+}
+header {
+  background: url('../img/appartement.jpg') center/cover no-repeat;
+  color: white;
+}
+/* Supprimer l'image par défaut et mettre nos styles */
+#heroCarousel .carousel-control-prev-icon,
+#heroCarousel .carousel-control-next-icon {
+    background-image: none;      /* enlever l’icône par défaut */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;             /* taille de la flèche */
+    color: white;
+}
+
+/* Ajouter le symbole flèche à l'aide de pseudo-éléments */
+#heroCarousel .carousel-control-prev-icon::after {
+    content: '<';
+}
+
+#heroCarousel .carousel-control-next-icon::after {
+    content: '>';
+}
+
+/* Hover : foncé et plus visible */
+#heroCarousel .carousel-control-prev-icon:hover,
+#heroCarousel .carousel-control-next-icon:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+/* Navbar générale */
+.navbar {
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Logo / marque */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: #fff !important;
+}
+
+/* Liens du menu */
+.navbar-nav .nav-link {
+    color: #fff !important;
+    margin: 0 0.5rem;
+    transition: color 0.3s, transform 0.3s;
+}
+.navbar-brand:hover  {
+     color: #25D366 !important; /* couleur or au survol */
+}
+
+/* Hover / survol */
+.navbar-nav .nav-link:hover {
+    color: #25D366 !important; /* couleur or au survol */
+    transform: scale(1.1);
+}
+
+/* Bouton hamburger (mobile) */
+.navbar-toggler {
+    border: 2px solid #fff;
+    border-radius: 5px;
+}
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+        color: #25D366 !important;
+        transform: scale(1.1);
+    }
+
+/* Barre mobile */
+.navbar-collapse {
+    padding: 1rem;
+}
+
+ /* Galerie en bas du carousel */
+    .gallery img {
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+    .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Carousel : toutes les images mêmes dimensions */
+#heroCarousel .carousel-item {
+    height: 70vh;          /* hauteur fixe pour toutes les images */
+    min-height: 300px;
+    position: relative;
+}
+#heroCarousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* recadre l'image pour remplir le conteneur */
+}
+
+/* Galerie : toutes les images mêmes dimensions */
+.gallery img {
+    width: 100%;
+    height: 250px;         /* même hauteur pour toutes les images */
+    object-fit: cover;     /* recadre et garde le ratio */
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+

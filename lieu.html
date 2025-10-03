@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sites touristiques - Appartement</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #fff !important;
+    }
+    .navbar-nav .nav-link {
+      color: #fff !important;
+      margin: 0 0.5rem;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+      color: #25D366 !important;
+      transform: scale(1.1);
+    }
+
+    /* Section touristique */
+    .tourism-section {
+      padding: 3rem 1rem;
+      background-color: #f8f9fa;
+    }
+
+    .tourism-section h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #343a40;
+    }
+
+    .card-tourism {
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    .card-tourism img {
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-tourism:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      margin-top: 2rem;
+      background-color: #343a40;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Appartement Soanomena Ampefy</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">Lieux touristiques</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Où nous trouver</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Section Sites touristiques -->
+  <section class="tourism-section container">
+    <h1>Sites touristiques à visiter</h1>
+    <div class="row g-4">
+  <!-- Carte 1 -->
+  <div class="col-md-4">
+    <div class="card card-tourism h-100">
+      <img src="assets/img/8.jpg" class="card-img-top" alt="Les Chutes de la Lily">
+      <div class="card-body d-flex flex-column justify-content-between">
+        <h5 class="card-title">Les Chutes de la Lily</h5>
+        <p class="card-text">À seulement 7 km de nos appartements Soanomena.</p>
+        <p class="card-text">Transport en commun : 2000 à 3000 Ar / personne.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carte 2 -->
+  <div class="col-md-4">
+    <div class="card card-tourism h-100">
+      <img src="assets/img/10.jpg" class="card-img-top" alt="L’îlot de la Vierge à Ampefy">
+      <div class="card-body d-flex flex-column justify-content-between">
+        <h5 class="card-title">L’îlot de la Vierge à Ampefy</h5>
+        <p class="card-text">À seulement 7 km de nos appartements Soanomena.</p>
+        <p class="card-text">Transport en commun : 2000 à 3000 Ar / personne.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carte 3 -->
+  <div class="col-md-4">
+    <div class="card card-tourism h-100">
+      <img src="assets/img/9.jpg" class="card-img-top" alt="Le Geyser d’Ampefy (Analavory)">
+      <div class="card-body d-flex flex-column justify-content-between">
+        <h5 class="card-title">Le Geyser d’Ampefy (Analavory)</h5>
+        <p class="card-text">Situé à environ 22 km de nos appartements Soanomena.</p>
+        <p class="card-text">Transport en commun : environ 4000 à 5000 Ar / personne.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Appartement Soanomena Ampefy - Tous droits réservés
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
