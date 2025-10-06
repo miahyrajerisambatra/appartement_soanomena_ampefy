@@ -64,6 +64,11 @@
       padding: 1rem;
       text-align: center;
     }
+        @media (max-width: 767px) {
+    .navbar-brand {
+        font-size: 0.9rem; /* réduit le texte du logo sur mobile */
+    }
+}
   </style>
 </head>
 <body>
@@ -76,7 +81,7 @@
       </button>
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
           <li class="nav-item"><a class="nav-link active" href="about.html">Lieux touristiques</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Où nous trouver</a></li>
         </ul>

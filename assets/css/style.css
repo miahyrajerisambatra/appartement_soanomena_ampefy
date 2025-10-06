@@ -93,7 +93,21 @@ header {
         margin-top: 0.5rem;
     }
 }
+/* Sur mobile, espacement vertical et centré */
+    @media (max-width: 767px) {
+      .gallery .row {
+        justify-content: center;
+      }
+      .gallery .col-6 {
+        margin-bottom: 15px;
+      }
+    }
 
+    @media (max-width: 767px) {
+    .navbar-brand {
+        font-size: 0.9rem; /* réduit le texte du logo sur mobile */
+    }
+    }
 
 
  /* Galerie en bas du carousel */
