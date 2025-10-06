@@ -46,6 +46,7 @@ header {
     font-size: 1.5rem;
     letter-spacing: 1px;
     color: #fff !important;
+    white-space: nowrap; /* Empêche le logo de passer à la ligne */
 }
 
 /* Liens du menu */
@@ -67,23 +68,32 @@ header {
     color: #25D366 !important;
 }
 
-/* Bouton hamburger (mobile) */
+/* Bouton hamburger */
 .navbar-toggler {
     border: 2px solid #fff;
     border-radius: 5px;
 }
 
-/* === Correction mobile pour aligner logo et bouton === */
+/* === Version mobile === */
 @media (max-width: 991px) {
+    /* Container flex pour logo + hamburger */
     .navbar .container {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
+
+    /* Réduire la taille du logo pour mobile */
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    /* Menu mobile centré en dessous */
     .navbar-collapse {
         margin-top: 0.5rem;
     }
 }
+
 
 
  /* Galerie en bas du carousel */
