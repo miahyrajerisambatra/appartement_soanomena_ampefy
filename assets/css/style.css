@@ -36,7 +36,7 @@ header {
 }
 /* Navbar générale */
 .navbar {
-    padding: 1rem 2rem;
+    padding: 0.8rem 1rem;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
@@ -54,14 +54,17 @@ header {
     margin: 0 0.5rem;
     transition: color 0.3s, transform 0.3s;
 }
-.navbar-brand:hover  {
-     color: #25D366 !important; /* couleur or au survol */
-}
 
 /* Hover / survol */
-.navbar-nav .nav-link:hover {
-    color: #25D366 !important; /* couleur or au survol */
+.navbar-nav .nav-link:hover, 
+.navbar-nav .nav-link.active {
+    color: #25D366 !important;
     transform: scale(1.1);
+}
+
+/* Logo hover */
+.navbar-brand:hover {
+    color: #25D366 !important;
 }
 
 /* Bouton hamburger (mobile) */
@@ -69,15 +72,19 @@ header {
     border: 2px solid #fff;
     border-radius: 5px;
 }
-.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
-        color: #25D366 !important;
-        transform: scale(1.1);
-    }
 
-/* Barre mobile */
-.navbar-collapse {
-    padding: 1rem;
+/* === Correction mobile pour aligner logo et bouton === */
+@media (max-width: 991px) {
+    .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-collapse {
+        margin-top: 0.5rem;
+    }
 }
+
 
  /* Galerie en bas du carousel */
     .gallery img {
