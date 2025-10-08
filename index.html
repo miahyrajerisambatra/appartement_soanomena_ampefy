@@ -33,11 +33,15 @@
       text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
       width: 80%;
     }
+    .btn{
+      background-color: #1abd56;
+      border-color: #25D366;
+    }
 
     /* Responsive : ajustement mobile */
     @media (max-width: 767px) {
       #heroCarousel .carousel-caption {
-        top: 65%;
+        top: 62%;
         width: 90%;
         font-size: 0.9rem;
         padding: 0 10px;
@@ -55,9 +59,12 @@
         font-size: 0.9rem;
         padding: 6px 12px;
       }
+      #heroCarousel .carousel-item {
+        height: 300px;
+      }
     }
 
-    /* Galerie */
+    /* Galerie - Desktop */
     .gallery img {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border-radius: 15px;
@@ -72,22 +79,96 @@
       box-shadow: 0 8px 15px rgba(0,0,0,0.3);
     }
 
-    /* Sur mobile, espacement vertical et centré */
+    /* Galerie Desktop - Grid normale */
+    .gallery-desktop {
+      display: block;
+    }
+
+    .gallery-mobile {
+      display: none;
+    }
+
+    /* Galerie Mobile - Vue spéciale */
     @media (max-width: 767px) {
-      .gallery .row {
-        justify-content: center;
+      .gallery-desktop {
+        display: none;
       }
-      .gallery .col-6 {
+
+      .gallery-mobile {
+        display: block;
+      }
+
+      /* Image principale */
+      .main-image-container {
+        width: 100%;
+        height: 300px;
         margin-bottom: 15px;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+
+      .main-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+      }
+
+      /* Container des miniatures */
+      .thumbnails-container {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .thumbnails-container::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .thumbnails-container::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+
+      .thumbnails-container::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+      }
+
+      .thumbnails-container::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      /* Miniatures */
+      .thumbnail {
+        min-width: 100px;
+        height: 100px;
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .thumbnail:active {
+        transform: scale(0.95);
+      }
+
+      .thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
 
     @media (max-width: 767px) {
-    .navbar-brand {
-        font-size: 0.9rem; /* réduit le texte du logo sur mobile */
+      .navbar-brand {
+        font-size: 0.9rem;
+      }
     }
-}
-
   </style>
 </head>
 <body>
@@ -118,7 +199,7 @@
           <div class="carousel-caption d-block">
             <h1>Bienvenue aux Appartements Soanomena Ampefy</h1>
             <p>Nos appartements modernes vous offrent confort, calme et une vue imprenable sur la nature environnante.</p>
-            <a href="about.html" class="btn btn-primary">Voir nos appartements</a>
+            <a href="about.html" class="btn btn-success">Voir nos appartements</a>
           </div>
         </div>
         <!-- Slide 2 -->
@@ -126,17 +207,17 @@
           <img src="assets/img/2.jpeg" class="d-block w-100" alt="Chambre">
           <div class="carousel-caption d-block">
             <h1>Pour votre séjour à Ampefy</h1>
-            <p>Venez profiter d’un hébergement moderne et chaleureux dans un cadre naturel exceptionnel.</p>
-            <a href="about.html" class="btn btn-primary">Voir nos appartements</a>
+            <p>Venez profiter d'un hébergement moderne et chaleureux dans un cadre naturel exceptionnel.</p>
+            <a href="about.html" class="btn btn-success">Voir nos appartements</a>
           </div>
         </div>
         <!-- Slide 3 -->
         <div class="carousel-item">
           <img src="assets/img/6.jpg" class="d-block w-100" alt="Cuisine">
           <div class="carousel-caption d-block">
-            <h1>Profitez d’un séjour au cœur de la campagne d’Ampefy</h1>
+            <h1>Profitez d'un séjour au cœur de la campagne d'Ampefy</h1>
             <p>Un endroit paisible pour se détendre, se ressourcer et admirer la nature.</p>
-            <a href="about.html" class="btn btn-primary">Voir nos appartements</a>
+            <a href="about.html" class="btn btn-success">Voir nos appartements</a>
           </div>
         </div>
       </div>
@@ -163,13 +244,44 @@
   <!-- Galerie -->
   <section class="container my-5 gallery">
     <h2 class="text-center mb-4">Galerie</h2>
-    <div class="row g-3 justify-content-center">
-      <div class="col-6 col-md-4"><img src="assets/img/3.jpg" alt="Salon"></div>
-      <div class="col-6 col-md-4"><img src="assets/img/4.jpg" alt="Chambre"></div>
-      <div class="col-6 col-md-4"><img src="assets/img/5.jpg" alt="Cuisine"></div>
-      <div class="col-6 col-md-4"><img src="assets/img/1.jpg" alt="Salon"></div>
-      <div class="col-6 col-md-4"><img src="assets/img/2.jpeg" alt="Chambre"></div>
-      <div class="col-6 col-md-4"><img src="assets/img/3.jpg" alt="Cuisine"></div>
+    
+    <!-- Version Desktop -->
+    <div class="gallery-desktop">
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-md-4"><img src="assets/img/3.jpg" alt="Salon"></div>
+        <div class="col-6 col-md-4"><img src="assets/img/4.jpg" alt="Chambre"></div>
+        <div class="col-6 col-md-4"><img src="assets/img/5.jpg" alt="Cuisine"></div>
+        <div class="col-6 col-md-4"><img src="assets/img/1.jpg" alt="Salon"></div>
+        <div class="col-6 col-md-4"><img src="assets/img/2.jpeg" alt="Chambre"></div>
+        <div class="col-6 col-md-4"><img src="assets/img/3.jpg" alt="Cuisine"></div>
+      </div>
+    </div>
+
+    <!-- Version Mobile -->
+    <div class="gallery-mobile">
+      <!-- Image principale -->
+      <div class="main-image-container">
+        <img id="mainImage" src="assets/img/3.jpg" alt="Image principale">
+      </div>
+
+      <!-- Miniatures -->
+      <div class="thumbnails-container" id="thumbnailsContainer">
+        <div class="thumbnail" data-src="assets/img/4.jpg">
+          <img src="assets/img/4.jpg" alt="Miniature 1">
+        </div>
+        <div class="thumbnail" data-src="assets/img/5.jpg">
+          <img src="assets/img/5.jpg" alt="Miniature 2">
+        </div>
+        <div class="thumbnail" data-src="assets/img/1.jpg">
+          <img src="assets/img/1.jpg" alt="Miniature 3">
+        </div>
+        <div class="thumbnail" data-src="assets/img/2.jpeg">
+          <img src="assets/img/2.jpeg" alt="Miniature 4">
+        </div>
+        <div class="thumbnail" data-src="assets/img/3.jpg">
+          <img src="assets/img/3.jpg" alt="Miniature 5">
+        </div>
+      </div>
     </div>
   </section>
 
@@ -181,14 +293,11 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Lightbox JS -->
+  <!-- Lightbox JS pour Desktop -->
   <script>
-    // Sélectionne toutes les images de la galerie
-    const galleryImages = document.querySelectorAll('.gallery img');
-
+    const galleryImages = document.querySelectorAll('.gallery-desktop img');
     galleryImages.forEach(img => {
       img.addEventListener('click', () => {
-        // Créer overlay
         const overlay = document.createElement('div');
         overlay.style.position = 'fixed';
         overlay.style.top = '0';
@@ -210,24 +319,34 @@
         imgBig.style.boxShadow = '0 10px 25px rgba(0,0,0,0.5)';
         overlay.appendChild(imgBig);
 
-        overlay.addEventListener('click', () => {
-          overlay.remove();
-        });
-
+        overlay.addEventListener('click', () => overlay.remove());
         document.body.appendChild(overlay);
       });
     });
   </script>
-  <!-- ... ton code HTML existant ... -->
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Gallery Mobile Interactive -->
+  <script>
+    const mainImage = document.getElementById('mainImage');
+    const thumbnails = document.querySelectorAll('.thumbnail');
 
-<!-- Lightbox JS -->
-<script>
-  const galleryImages = document.querySelectorAll('.gallery img');
-  galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
+    thumbnails.forEach(thumbnail => {
+      thumbnail.addEventListener('click', () => {
+        // Récupérer l'URL de l'image cliquée
+        const clickedSrc = thumbnail.dataset.src;
+        
+        // Récupérer l'URL actuelle de l'image principale
+        const currentMainSrc = mainImage.src;
+        
+        // Échanger les images
+        mainImage.src = clickedSrc;
+        thumbnail.dataset.src = currentMainSrc;
+        thumbnail.querySelector('img').src = currentMainSrc;
+      });
+    });
+
+    // Lightbox pour l'image principale sur mobile
+    mainImage.addEventListener('click', () => {
       const overlay = document.createElement('div');
       overlay.style.position = 'fixed';
       overlay.style.top = '0';
@@ -242,7 +361,7 @@
       overlay.style.zIndex = '9999';
 
       const imgBig = document.createElement('img');
-      imgBig.src = img.src;
+      imgBig.src = mainImage.src;
       imgBig.style.maxWidth = '90%';
       imgBig.style.maxHeight = '90%';
       imgBig.style.borderRadius = '15px';
@@ -252,38 +371,34 @@
       overlay.addEventListener('click', () => overlay.remove());
       document.body.appendChild(overlay);
     });
-  });
-</script>
+  </script>
 
-<!-- Scroll to Top Button -->
-<button id="scrollTopBtn" style="
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  padding: 10px 15px;
-  font-size: 18px;
-  border: none;
-  border-radius: 50%;
-  background: #007bff;
-  color: white;
-  cursor: pointer;
-  display: none;
-  z-index: 1000;
-">↑</button>
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" style="
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50%;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+  ">↑</button>
 
-<script>
-  const scrollBtn = document.getElementById('scrollTopBtn');
-  window.addEventListener('scroll', () => {
-    scrollBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
-  });
+  <script>
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      scrollBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
+    });
 
-  scrollBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-</script>
-
-</body>
-</html>
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 
 </body>
 </html>
