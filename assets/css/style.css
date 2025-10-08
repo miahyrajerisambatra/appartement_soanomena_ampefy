@@ -145,3 +145,37 @@ header {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
+
+
+
+
+/* Bouton hamburger */
+.navbar-toggler {
+    border: 2px solid #fff;
+    border-radius: 5px;
+    position: relative;
+    padding: 0.25rem 0.75rem;
+}
+
+/* Icône hamburger par défaut (3 barres) */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    transition: transform 0.3s ease;
+}
+
+/* Transformer en X quand le menu est ouvert */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M6 6l18 18M6 24L24 6'/%3e%3c/svg%3e");
+    transform: rotate(90deg);
+}
+
+/* Animation de rotation */
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
